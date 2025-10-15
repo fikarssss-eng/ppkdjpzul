@@ -6,11 +6,11 @@ class Tugas2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Profil Lengkap"),),
+      appBar: AppBar(title: Center(child: Text("Profil Lengkap")),),
       body: Column(
         children: [
           Text("Zulfikar PS", style: TextStyle(fontSize: 30),),
-          Padding(padding: EdgeInsets.all(8),
+          Padding(padding: EdgeInsets.all(16),
           child: Container(
             child: Row(
               children: [
@@ -35,11 +35,10 @@ class Tugas2 extends StatelessWidget {
               margin: EdgeInsets.all(8),
               child: Center(child: Text("Followers")),))  ],
              ),
-             SizedBox(height:  1,),
-             Container(
+            SizedBox(height:  50,
               child: Padding(
-                padding: EdgeInsets.all(10),
-                child: Row(children: [Text("Peserta PPKDJP")],),
+                padding: EdgeInsets.all(8),
+                child: Row(children: [Text("Peserta PPKD Jakarta Pusat Mobile Programming Batch IV 2025. Setelah melewati daftar online, seleksi dokumen, da")],),
                 ),
              ),
              Row(

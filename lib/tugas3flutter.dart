@@ -6,7 +6,9 @@ class Tugas3Flutter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Center(child: Text("Data Diri")),),
+      appBar: AppBar(
+        backgroundColor: Colors.greenAccent,
+        title: Center(child: Text("Data Diri")),),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -18,6 +20,7 @@ class Tugas3Flutter extends StatelessWidget {
             decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: "Masukkan Nama Anda",
+                  hintStyle: TextStyle(fontStyle: FontStyle.italic)
                 ),
             ),
             Padding(padding: EdgeInsets.all(4)),
@@ -25,6 +28,7 @@ class Tugas3Flutter extends StatelessWidget {
             TextField(
               decoration: InputDecoration(
                   border: OutlineInputBorder(),
+                  hintStyle: TextStyle(fontStyle: FontStyle.italic),
                   hintText: "Masukkan Email Anda",
                 ), 
             ),
@@ -32,6 +36,7 @@ class Tugas3Flutter extends StatelessWidget {
           Text("Nomer HP"),
             TextField(
               decoration: InputDecoration(
+                hintStyle: TextStyle(fontStyle: FontStyle.italic),
                 border: OutlineInputBorder(),
                 hintText:  "Masukan Nomer HP Anda",
               ),
@@ -40,6 +45,7 @@ class Tugas3Flutter extends StatelessWidget {
            Text("Deskripsi"),
             TextField(
               decoration: InputDecoration(
+                hintStyle: TextStyle(fontStyle: FontStyle.italic),
                 border: OutlineInputBorder(),
                 hintText:  "Masukan Profil Anda",
               ),

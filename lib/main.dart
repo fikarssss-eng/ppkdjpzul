@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ppkdjpzul/caseflutter.dart';
+import 'package:ppkdjpzul/tugas3flutter.dart';
 import 'package:ppkdjpzul/tugas1.dart';
 import 'package:ppkdjpzul/tugas2.dart';
 
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
       ),
-      home:Tugas2()
+      home:Tugas3Flutter()
     );
   }
 }
