@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:ppkdjpzul/state1day12.dart';
 import 'package:ppkdjpzul/tugas3flutter.dart';
 import 'package:ppkdjpzul/tugas1.dart';
 import 'package:ppkdjpzul/tugas2.dart';
+import 'package:ppkdjpzul/tugas4flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
       ),
-      home:Tugas3Flutter()
+      home:Tugas4Flutter()
     );
   }
 }

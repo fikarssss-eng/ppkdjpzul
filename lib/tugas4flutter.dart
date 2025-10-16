@@ -8,7 +8,7 @@ class Tugas4Flutter extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.greenAccent,
-        title: Center(child: Text("Data Diri")),),
+        title: Center(child: Text("Data Diri"))),
       body: ListView(
         // mainAxisAlignment: MainAxisAlignment.start,
         // crossAxisAlignment: CrossAxisAlignment.start,
