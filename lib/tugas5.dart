@@ -18,7 +18,8 @@ class _Tugas5State extends State<Tugas5> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Buttons"), backgroundColor: Colors.blue,),
+      appBar: AppBar(title: Text("Buttons"), 
+        backgroundColor: Colors.blue,),
       body: 
       Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -29,7 +30,8 @@ class _Tugas5State extends State<Tugas5> {
             child: SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.blueAccent),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blueAccent),
                 onPressed: () {
                   nama = !nama;
                   setState(() {

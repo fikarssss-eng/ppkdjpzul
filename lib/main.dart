@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ppkdjpzul/esteroapp.dart';
 import 'package:ppkdjpzul/floating.dart';
 import 'package:ppkdjpzul/gesture.dart';
 import 'package:ppkdjpzul/icon.dart';
@@ -8,6 +9,8 @@ import 'package:ppkdjpzul/state2.dart';
 import 'package:ppkdjpzul/textbutton.dart';
 import 'package:ppkdjpzul/tugas4flutter.dart';
 import 'package:ppkdjpzul/tugas5.dart';
+import 'package:ppkdjpzul/tugas6.dart';
+import 'package:ppkdjpzul/tugs6.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,7 +42,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
       ),
-      home:Tugas5()
+      home:Tugs6()
     );
   }
 }
