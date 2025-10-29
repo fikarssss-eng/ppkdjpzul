@@ -1,172 +1,74 @@
 import 'package:flutter/material.dart';
+import 'package:ppkdjpzul/day16/checkbox.dart';
+import 'package:ppkdjpzul/day16/date_picker.dart';
+import 'package:ppkdjpzul/day16/dropdown.dart';
+import 'package:ppkdjpzul/day16/switch.dart';
+import 'package:ppkdjpzul/day16/time_picker.dart';
 
-class Inputwidget extends StatefulWidget {
-  const Inputwidget({super.key});
+class Tugas7Drawer extends StatefulWidget {
+  const Tugas7Drawer({super.key});
 
   @override
-  State<Inputwidget> createState() => _InputwidgetState();
+  State<Tugas7Drawer> createState() => _Tugas7DrawerState();
 }
 
-class _InputwidgetState extends State<Inputwidget> {
-  bool isChecked = false;
-  bool isOn = false;
-  String? selected;
-  DateTime? selectedDate;
-  TimeOfDay? selectedTime;
+class _Tugas7DrawerState extends State<Tugas7Drawer> {
+int _selectedIndex = 0;
+
+static const List<Widget> _widgetOptions = [
+  CheckboxPage(),
+  SwitchPage(),
+  DropdownPage(), 
+  DatePickerPage(),
+  TimePickerPage(),
+];
+ void onTapDrawer(int index) {
+    setState(() {
+      _selectedIndex = index;
+      Navigator.pop(context); // Close the drawer after selection
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Drawer Page"),),
-      drawer: Drawer(
-        backgroundColor:isOn?Colors.grey: Colors.white,
-        child: Column(
-          children: [
-            Container(
-              alignment: Alignment.center,
-              height: 50,
-              width: double.infinity,
-              color: Colors.green,
-              child: Text("Data Lengkap", style: TextStyle(fontSize:20, fontWeight: FontWeight.bold),),
-            ),
-            ListTile(
-              leading: Icon(Icons.check_box),
-              title: Text("Checkbox")
-            ),
-            ListTile(
-              leading: Icon(Icons.switch_account),
-              title: Text("Switch")
-            ),
-            ListTile(
-              leading: Icon(Icons.arrow_drop_down),
-              title: Text("Dropdown")
-            ),
-            ListTile(
-              leading: Icon(Icons.calendar_month),
-              title: Text("Tanggal")
-            ),
-            ListTile(
-              leading: Icon(Icons.lock_clock),
-              title: Text("Jam"),
-                 ),
-                ],
-        )
+      appBar: AppBar(
+        title: const Text('Tugas 7 Drawer'),
       ),
-      body: Column(
-      children: [
-        Center(child: Text("Saya menyetujui persyaratan yang berlaku")),
-        Checkbox(
-          value: isChecked,
-          onChanged: (value) {
-            print(value);
-            setState(() {
-              isChecked = value!;
-            });
-          }
-          ),
-          SizedBox(height: 8),
-        Text(
-          isChecked
-              ? "Lanjutkan pendaftaran dilanjutkan"
-              : "Anda belum bisa melanjutkan",
-          ),
-          SizedBox(height: 4),
-          Text("Aktifkan Mode Gelap"),
-          Switch(
-            value: isOn, 
-            onChanged: (val){
-            setState(() {
-              isOn = val;
-            });
-          },
-          ),
-          Text(isOn ? "Mode Gelap Aktif" : "Mode Terang Aktif"),
-          SizedBox(height: 8),
-          Text("Pilih Kategori Produk"),
-          DropdownButton<String>(
-            value: selected,
-            hint: Text("Anda memilih"),
-            items: ["Elektronik", "Pakaian", "Makanan"].map((String val) {
-            return DropdownMenuItem(value: val, child: Text(val));
-          }).toList(),
-          onChanged: (val){
-            setState(() {
-              selected = val;
-            });
-           },
-          ),
-          SizedBox(height: 8),
-          Text("Pilih tanggal lahir"),
-          ElevatedButton(
-          onPressed: () async {
-            final DateTime? picked = await showDatePicker(
-              context: context,
-              firstDate: DateTime(2000),
-              lastDate: DateTime(2100),
-            );
-            if (picked != null) {
-              print(picked);
-              setState(() {
-                selectedDate = picked;
-              });
-            }
-          },
-          child: Text("Pilih Tanggal Lahir"),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Text('Menu Drawer'),
+            ),
+            ListTile(
+              title: const Text('Checkbox'),
+              onTap: () => onTapDrawer(0),
+            ),
+            ListTile(
+              title: const Text('Switch'),
+              onTap: () => onTapDrawer(1),
+            ),
+            ListTile(
+              title: const Text('Dropdown'),
+              onTap: () => onTapDrawer(2),
+            ),
+            ListTile(
+              title: const Text('Date Picker'),
+              onTap: () => onTapDrawer(3),
+            ),
+            ListTile(
+              title: const Text('Time Picker'),
+              onTap: () => onTapDrawer(4),
+            ),
+          ],
         ),
-          SizedBox(height: 8),
-        Text("Atur Pengingat"),
-        ElevatedButton(onPressed: () async {
-          final TimeOfDay? picked = await showTimePicker(
-            context: context,
-           initialTime: TimeOfDay.now()
-           );
-           if (picked !=null) {
-            print(picked);
-            setState(() {
-              selectedTime = picked;
-            });
-           }
-        }, 
-        child: Text("Pilih Waktu Pengingat"),
-        ),
-      // drawer: Drawer(
-      //   backgroundColor:isOn?Colors.grey: Colors.white,
-      //   child: Column(
-      //     children: [
-      //       Container(
-      //         alignment: Alignment.center,
-      //         height: 50,
-      //         width: double.infinity,
-      //         color: Colors.green,
-      //         child: Text("Data Lengkap", style: TextStyle(fontSize:20, fontWeight: FontWeight.bold),),
-      //       ),
-      //       ListTile(
-      //         leading: Icon(Icons.check_box),
-      //         title: Text("Checkbox")
-      //       ),
-      //       ListTile(
-      //         leading: Icon(Icons.switch_account),
-      //         title: Text("Switch")
-      //       ),
-      //       ListTile(
-      //         leading: Icon(Icons.arrow_drop_down),
-      //         title: Text("Dropdown")
-      //       ),
-      //       ListTile(
-      //         leading: Icon(Icons.calendar_month),
-      //         title: Text("Tanggal")
-      //       ),
-      //       ListTile(
-      //         leading: Icon(Icons.lock_clock),
-      //         title: Text("Jam"),
-      //            ),
-      //           ],
-        
-      //   )
-      
-      // ),
-      ]
-      )
-    );
-          
+      ),
+      body: _widgetOptions[_selectedIndex]
+      );
+    
   }
 }
